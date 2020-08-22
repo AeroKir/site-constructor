@@ -33,6 +33,19 @@ const modelOfBlocks = [
     blockValue: 'Yet another title',
     blockOptions: {},
   },
+  {
+    blockCreatorFunctionName: 'createTextColumnsBlock',
+    blockType: 'textColumns',
+    blockValue: [
+      '1 text',
+      '2 text',
+      '3 text',
+      '4 text',
+    ],
+    blockOptions: {
+      styles: 'padding: 1rem; color: orange;',
+    },
+  },
 ];
 
 export default modelOfBlocks;

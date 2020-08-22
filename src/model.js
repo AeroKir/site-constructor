@@ -1,15 +1,21 @@
 const modelOfBlocks = [
   {
+    blockCreatorFunctionName: 'createTitleBlock',
     blockType: 'title',
     blockValue: 'Test title',
-    blockOptions: {},
+    blockOptions: {
+      tag: 'h2',
+      styles: 'background: red; color: #fff; margin: 0 auto;',
+    },
   },
   {
+    blockCreatorFunctionName: 'createTextBlock',
     blockType: 'text',
     blockValue: 'Text and many many text',
     blockOptions: {},
   },
   {
+    blockCreatorFunctionName: 'createTextColumnsBlock',
     blockType: 'textColumns',
     blockValue: [
       '1 text',
@@ -17,9 +23,12 @@ const modelOfBlocks = [
       '3 text',
       '4 text',
     ],
-    blockOptions: {},
+    blockOptions: {
+      styles: 'padding: 1rem; color: darkblue;',
+    },
   },
   {
+    blockCreatorFunctionName: 'createTitleBlock',
     blockType: 'title',
     blockValue: 'Yet another title',
     blockOptions: {},

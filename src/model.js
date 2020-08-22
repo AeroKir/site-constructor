@@ -1,3 +1,5 @@
+import image from './assets/img.jpg';
+
 const modelOfBlocks = [
   {
     blockCreatorFunctionName: 'createTitleBlock',
@@ -44,6 +46,16 @@ const modelOfBlocks = [
     ],
     blockOptions: {
       styles: 'padding: 1rem; color: orange;',
+    },
+  },
+  {
+    blockCreatorFunctionName: 'createImageBlock',
+    blockType: 'image',
+    blockValue: image,
+    blockOptions: {
+      src: image,
+      alt: 'Image',
+      styles: 'width: 300px; height: auto;',
     },
   },
 ];

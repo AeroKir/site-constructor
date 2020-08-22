@@ -16,10 +16,17 @@ function createTextColumnsBlock(block) {
   return createRowWrapper(`${columnsBlockContent.join('')}`, block.blockOptions.styles);
 }
 
+function createImageBlock(block) {
+  const { src, alt, styles } = block.blockOptions;
+
+  return createRowWrapper(`<img src="${src}" alt="${alt}" style="${styles}" />`);
+}
+
 const blockTemplates = {
   createTitleBlock,
   createTextBlock,
   createTextColumnsBlock,
+  createImageBlock,
 };
 
 export default blockTemplates;

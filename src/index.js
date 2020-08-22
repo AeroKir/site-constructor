@@ -1,47 +1,14 @@
 import model from './model';
+import blockTemplates from './block-templates';
 import './styles/main.css';
 
-console.log(model);
-
-function createTitleBlock(block) {
-  return `
-  <div class="row">
-    <div class="col-sm">
-      <h1>${block.blockValue}</h1>
-    </div>
-  </div>
-  `;
-}
-
-function createTextBlock(block) {
-  return `
-  <div class="row">
-    <div class="col-sm">
-      <p>${block.blockValue}</p>
-    </div>
-  </div>
-  `;
-}
-
-function createTextColumnsBlock(block) {
-  const columnsBlockContent = block.blockValue.map((item) => `<div class="col-sm">${item}</div>`);
-
-  return `
-  <div class="row">
-    ${columnsBlockContent.join('')}
-  </div>
-  `;
-}
+const sitePreview = document.getElementById('site-preview');
 
 model.forEach((blockElement) => {
-  let html;
-  if (blockElement.blockType === 'title') {
-    html = createTitleBlock(blockElement);
-  } else if (blockElement.blockType === 'text') {
-    html = createTextBlock(blockElement);
-  } else if (blockElement.blockType === 'textColumns') {
-    html = createTextColumnsBlock(blockElement);
-  }
+  const content = blockTemplates[blockElement.blockCreatorFunctionName];
 
-  document.getElementById('site-preview').insertAdjacentHTML('beforeend', html);
+  if (content) {
+    const html = content(blockElement);
+    sitePreview.insertAdjacentHTML('beforeend', html);
+  }
 });
